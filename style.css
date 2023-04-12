@@ -1,0 +1,543 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+img {
+    width: 100%;
+}
+
+:root {
+    --main-yellow: rgb(205, 150, 49);
+}
+
+/*NAVBAR*/
+/* Navbar içine bir checkbox koyarak tıklanınna menü iconunun değişmesini sağladım. */
+/* Yine checkbox checked olunca menünün margin değerini pozitif yaparak görünmesini sağladım*/
+.navbar {
+    position: fixed;
+    top: 10vh;
+    left: 5vh;
+   
+
+}
+
+
+.navbar i {
+    color: silver;
+    filter: invert(100%);
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.navbar i:nth-of-type(2) {
+    display: none;
+}
+
+.navbar input {
+    display: none;
+}
+
+.navbar input:checked+.fa-bars {
+    display: none;
+}
+
+.navbar input:checked+.fa-bars+.fa-circle-left {
+    display: inline-block;
+}
+
+.navbar nav {
+    width: 80px;
+    background-color: silver;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 5px 0;
+    line-height: 35px;
+    margin-left: calc(-90px + -5vh);
+    transition: all .3s ease-in-out;
+}
+
+.navbar nav a {
+    background-color: silver;
+    font-size: 19px;
+    color: black;
+    width: 90%;
+    text-decoration: none;
+    border: 5px solid transparent;
+    margin-left: 10%;
+    border-radius: 10px;
+}
+
+.navbar nav a:hover {
+    border: 5px solid black;
+    margin-left: 20%;
+    border-right: none;
+}
+
+.navbar input:checked+.fa-bars+.fa-circle-left+nav {
+    margin-left: 0;
+    transition: all .3s ease-in-out;
+}
+
+/*HERO SECTION */
+.hero {
+    background-image: url(images/hero-bg.jpg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.hero-top {
+    display: flex;
+    align-items: center;
+}
+
+.hero .hero-top .teams {
+    margin-left: 18vw;
+    color: antiquewhite;
+}
+
+.hero .hero-top .teams h3 {
+    font-size: 30px;
+    position: absolute;
+    top: 250px;
+    color: transparent;
+    z-index: 10;
+}
+
+/*Kayan yazı yapabilmek için her bir childe keyframe ile animasyon yaptım. 
+Böylece her biri, önceki kaybolunca görünür hale gelecek */
+
+.hero .hero-top .teams h3:nth-child(1) {
+    animation: teams-anim1 12s linear infinite;
+}
+
+@keyframes teams-anim1 {
+    0% {
+        color: transparent;
+        top: 260px;
+    }
+
+    16% {
+        color: white;
+        top: 220px
+    }
+
+    33% {
+        color: transparent;
+        top: 220px
+    }
+
+    50% {
+        color: transparent
+    }
+
+    67% {
+        color: transparent
+    }
+
+    84% {
+        color: transparent;
+    }
+
+    100% {
+        color: transparent;
+    }
+}
+
+.hero .hero-top .teams h3:nth-child(2) {
+
+    animation: teams-anim2 12s linear infinite;
+}
+
+@keyframes teams-anim2 {
+    0% {
+        color: transparent
+    }
+
+    16% {
+        color: transparent;
+        top: 260px
+    }
+
+    33% {
+        color: white;
+        top: 220px
+    }
+
+    50% {
+        color: transparent;
+        top: 220px
+    }
+
+    67% {
+        color: transparent
+    }
+
+    84% {
+        color: transparent;
+    }
+
+    100% {
+        color: transparent;
+    }
+}
+
+.hero .hero-top .teams h3:nth-child(3) {
+    animation: teams-anim3 12s linear infinite;
+
+}
+
+@keyframes teams-anim3 {
+    0% {
+        color: transparent
+    }
+
+    16% {
+        color: transparent
+    }
+
+    33% {
+        color: transparent;
+        top: 260px
+    }
+
+    50% {
+        color: white;
+        top: 220px
+    }
+
+    67% {
+        color: transparent;
+        top: 220px
+    }
+
+    84% {
+        color: transparent;
+    }
+
+    100% {
+        color: transparent;
+    }
+}
+
+.hero .hero-top .teams h3:nth-child(4) {
+    animation: teams-anim4 12s linear infinite;
+
+}
+
+@keyframes teams-anim4 {
+    0% {
+        color: transparent
+    }
+
+    16% {
+        color: transparent
+    }
+
+    33% {
+        color: transparent
+    }
+
+    50% {
+        color: transparent;
+        top: 260px
+    }
+
+    67% {
+        color: white;
+        top: 220px
+    }
+
+    84% {
+        color: transparent;
+        top: 220px;
+    }
+
+    100% {
+        color: transparent;
+    }
+}
+
+.hero .hero-top .teams h3:nth-child(5) {
+    animation: teams-anim5 12s linear infinite;
+
+}
+
+@keyframes teams-anim5 {
+    0% {
+        color: transparent
+    }
+
+    16% {
+        color: transparent
+    }
+
+    33% {
+        color: transparent
+    }
+
+    50% {
+        color: transparent
+    }
+
+    67% {
+        color: transparent;
+        top: 260px
+    }
+
+    84% {
+        color: white;
+        top: 220px;
+    }
+
+    100% {
+        color: transparent;
+        top: 220px;
+    }
+}
+
+
+
+.hero figure {
+    width: 25vh;
+    animation: kupa 16s infinite linear alternate;
+    margin-left: 180px;
+}
+
+
+
+.hero figure img {
+    background-color: transparent;
+    width: 100%;
+
+}
+
+/*Sürekli dönen bir kupa animasyonu yaptım*/
+@keyframes kupa {
+    0% {
+        transform: rotateY(0);
+    }
+
+    15% {
+        transform: rotateY(50deg);
+    }
+
+    25% {
+        transform: rotateY(100deg);
+    }
+
+    40% {
+        transform: rotateY(150deg);
+    }
+
+    55% {
+        transform: rotateY(160deg);
+    }
+
+    70% {
+        transform: rotateY(110deg);
+    }
+
+    85% {
+        transform: rotateY(60deg);
+    }
+
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
+/*Açılışta ismin kayarak gelmesi için bir animasyon ekledim*/
+.hero .name {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 10vw;
+}
+
+.hero .name div span:nth-child(odd) {
+    font-size: 85px;
+    font-weight: bold;
+    color: var(--main-yellow);
+    text-shadow: 0 0 5px white;
+
+}
+
+.hero .name span:nth-child(even) {
+    font-size: 40px;
+    color: var(--main-yellow);
+    font-weight: bold;
+    text-shadow: 0 0 5px white;
+    letter-spacing: 10px;
+
+}
+
+.hero .name div span:last-child {
+    animation: name 5s linear;
+}
+
+.hero .name div:last-child {
+    margin-top: -40px;
+    margin-left: 80px;
+    letter-spacing: 10px;
+}
+
+@keyframes name {
+    0% {
+
+        color: transparent;
+        margin-left: -150px;
+        text-shadow: unset;
+    }
+
+    40% {
+
+        color: transparent;
+        margin-left: -75px;
+        text-shadow: unset;
+    }
+
+    90% {
+        display: inline;
+        margin-left: 0;
+        letter-spacing: 15px;
+    }
+
+    100% {
+        display: inline;
+        margin-left: 0;
+
+    }
+}
+
+/*Hero Section End*/
+
+/*Career Section Start*/
+
+.career {
+    background-image: url(images/carreer-bg.jpg);
+    padding-top: 2vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    z-index: -1;
+    
+
+}
+
+.career .sec-title{
+    position: absolute;
+    left: 0;
+    top: 2vh;
+    
+    
+}
+.career .sec-title h3 {
+    display: inline-block;
+    font-size: 60px;
+    margin-top: 0;
+    margin-left: 15vh;
+    border-bottom: 3px solid black;
+    line-height: 40px;
+    position: absolute;
+    z-index: 0;
+    animation: title 4s linear;
+    
+}
+@keyframes title {
+
+    0% {
+        margin-top: 5vh;
+    }
+    25% {
+        margin-top: 3vh;
+    }
+
+    50% {
+        margin-top: 2vh;
+    }
+    75% {
+        margin-top: 1vh;
+    }
+}
+.career .cards-container{
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-around;
+    gap: 50px;
+}
+.career .card{
+    background-color: silver;
+    opacity: 0.8;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: -3px -3px 5px var(--main-yellow);
+}
+.career .cards-container .card .card-title{
+    position: relative;
+    height: 50px;
+}
+.career .cards-container .card .card-title figure{
+    position: absolute;
+    width: 100px;
+    top: -60px;
+    z-index: 1;
+}
+.career .cards-container .card .card-title h3{
+    position: absolute;
+    font-size: 40px;
+    color: black;
+    z-index: 2;
+}
+.career .cards-container .card .card-bottom{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.career .cards-container .card .card-bottom .card-row{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom:1px solid var(--main-yellow) ;
+}
+.career .cards-container .card .card-bottom .card-row:hover{
+    border:2px solid var(--main-yellow) ;
+}
+
+
+
+
+
+.career .cards-container .card .card-bottom .card-row h4{
+   font-size: 18px;
+   display: inline-block;
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*Career Section end*/
