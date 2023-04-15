@@ -4,13 +4,20 @@
     box-sizing: border-box;
 }
 
+/*Ortak alan*/
+html{
+    overflow-x: hidden;
+    scroll-behavior:smooth;
+}
+
 section {
     width: 100%;
     height: 100vh;
     background-size: cover;
     background-position: center;
+    
 }
-
+/*Bütün img'leri figurenin içine sığdırmak için ortak alanda bu kodu yazdım*/
 img {
     width: 100%;
 }
@@ -24,12 +31,10 @@ img {
     width: 5px;
 
 }
-
 ::-webkit-scrollbar-thumb {
     background-color: var(--main-yellow);
     border-radius: 10px;
 }
-
 ::-webkit-scrollbar-track {
     background-color: black;
     border-radius: 10px;
@@ -37,25 +42,22 @@ img {
 
 
 /*NAVBAR*/
-/* Navbar içine bir checkbox koyarak tıklanınna menü iconunun değişmesini sağladım. */
+/* Navbar içine bir checkbox koyarak tıklanınca menü iconunun değişmesini sağladım. */
 /* Yine checkbox checked olunca menünün margin değerini pozitif yaparak görünmesini sağladım*/
 .navbar {
     position: fixed;
     top: 10vh;
     left: 5vh;
     z-index: 2;
-
-
 }
-
-
 .navbar i {
     color: silver;
     filter: invert(100%);
     font-size: 25px;
     margin-bottom: 10px;
 }
-
+/*Sola ok ikonunu gizledim. 
+İnput checked olunca menu ikonu gizlenip sola ok ikonu görünecek */
 .navbar i:nth-of-type(2) {
     display: none;
 }
@@ -100,7 +102,7 @@ img {
     margin-left: 20%;
     border-right: none;
 }
-
+/* İnput checked olunca navbar menusu soldan kayarak gelecek*/
 .navbar input:checked+.fa-bars+.fa-circle-left+nav {
     margin-left: 0;
     transition: all .3s ease-in-out;
@@ -132,8 +134,11 @@ img {
     z-index: 10;
 }
 
-/*Kayan yazı yapabilmek için her bir childe keyframe ile animasyon yaptım. 
-Böylece her biri, önceki kaybolunca görünür hale gelecek */
+/*Kayan yazı yapabilmek için her bir child'a keyframe ile animasyon yaptım. 
+Böylece her biri, önceki kaybolunca görünür hale gelecek 
+Hepsine aynı keyfaremeyi verince ikinci tekrarda yazılar üstüste biniyordu. 
+Herbirinin delay değerini farklı versem bile birbilerini beklemelerini sağlayamadım.
+bu yüzden herbirine ayrı keyframe yaptım*/
 
 .hero .hero-top .teams h3:nth-child(1) {
     animation: teams-anim1 12s linear infinite;
@@ -290,7 +295,6 @@ Böylece her biri, önceki kaybolunca görünür hale gelecek */
     animation: teams-anim5 12s linear infinite;
 
 }
-
 @keyframes teams-anim5 {
     0% {
         color: transparent
@@ -324,23 +328,18 @@ Böylece her biri, önceki kaybolunca görünür hale gelecek */
     }
 }
 
-
-
+/*Sürekli dönen bir kupa animasyonu yaptım*/
 .hero figure {
     width: 25vh;
     animation: kupa 16s infinite linear alternate;
     margin-left: 180px;
 }
-
-
-
 .hero figure img {
     background-color: transparent;
     width: 100%;
 
 }
 
-/*Sürekli dönen bir kupa animasyonu yaptım*/
 @keyframes kupa {
     0% {
         transform: rotateY(0);
@@ -453,16 +452,11 @@ Böylece her biri, önceki kaybolunca görünür hale gelecek */
     align-items: center;
     position: relative;
     z-index: 0;
-
-
 }
-
 .career .sec-title {
     position: absolute;
     left: 0;
     top: 2vh;
-
-
 }
 
 .career .sec-title h3 {
@@ -475,38 +469,15 @@ Böylece her biri, önceki kaybolunca görünür hale gelecek */
     line-height: 40px;
     position: absolute;
     z-index: 0;
-    animation: title 4s linear;
 
-}
-
-@keyframes title {
-
-    0% {
-        margin-top: 5vh;
-    }
-
-    25% {
-        margin-top: 3vh;
-    }
-
-    50% {
-        margin-top: 2vh;
-    }
-
-    75% {
-        margin-top: 1vh;
-    }
 }
 
 .career .cards-container {
     display: flex;
-
     align-items: center;
     justify-content: space-around;
     gap: 50px;
-
 }
-
 .career .card {
     background-color: silver;
     opacity: 0.8;
@@ -516,7 +487,6 @@ Böylece her biri, önceki kaybolunca görünür hale gelecek */
     box-shadow: -3px -3px 5px var(--main-yellow);
 
 }
-
 .career .cards-container .card .card-title {
     position: relative;
     height: 30%;
@@ -530,7 +500,6 @@ Böylece her biri, önceki kaybolunca görünür hale gelecek */
     z-index: 1;
 
 }
-
 
 .career .cards-container .card .card-title h3 {
     position: absolute;
@@ -546,10 +515,6 @@ Böylece her biri, önceki kaybolunca görünür hale gelecek */
     flex-direction: column;
     z-index: 10;
     overflow-y: auto;
-    overflow-x: hidden;
-
-
-
 }
 
 .career .cards-container .card .card-bottom .card-row {
@@ -558,7 +523,6 @@ Böylece her biri, önceki kaybolunca görünür hale gelecek */
     display: flex;
     justify-content: space-between;
     margin-right: 10%;
-
     gap: 20px;
     border-radius: 10px;
     border: 5px solid transparent;
@@ -567,7 +531,6 @@ Böylece her biri, önceki kaybolunca görünür hale gelecek */
 
 .career .cards-container .card .card-bottom .card-row:hover {
     border: 5px solid var(--main-yellow);
-
     margin-left: 10px;
     background-color: silver;
     border-right: none;
@@ -590,13 +553,10 @@ Böylece her biri, önceki kaybolunca görünür hale gelecek */
     flex-direction: column;
     margin: 0;
     width: 70%;
-
     background-color: silver;
     border-radius: 10px;
     box-shadow: -3px -3px 5px var(--main-yellow);
 }
-
-
 
 /*Career Section end*/
 /*cr7 Section start*/
@@ -605,9 +565,6 @@ Böylece her biri, önceki kaybolunca görünür hale gelecek */
     background-image: url(images/cr7-bg.jpg);
     overflow-x: hidden;
 }
-
-
-
 .cr7 .cr7-cards-container {
     height: 100vh;
     display: flex;
@@ -615,13 +572,11 @@ Böylece her biri, önceki kaybolunca görünür hale gelecek */
     justify-content: flex-end;
     position: relative;
 }
-
 .cr7 .cr7-cards-container .cards {
     margin-right: -400px;
     height: 100vh;
     width: 50%;
     position: relative;
-    
     transition: all .4s ease;
 
 }
@@ -629,17 +584,18 @@ Böylece her biri, önceki kaybolunca görünür hale gelecek */
 .cr7 .cr7-cards-container .cards:nth-of-type(1) {
     z-index: 2;
 }
-.cr7 .cr7-cards-container .cards:nth-of-type(2) { 
+
+.cr7 .cr7-cards-container .cards:nth-of-type(2) {
     z-index: 3;
 }
+
 .cr7 .cr7-cards-container .cards:nth-of-type(3) {
     z-index: 4;
 }
-.cr7 .cr7-cards-container .cards:nth-of-type(4) { 
+
+.cr7 .cr7-cards-container .cards:nth-of-type(4) {
     z-index: 5;
 }
-
-
 
 .cr7 .cr7-cards-container .cards:hover {
     margin-right: 0;
@@ -657,33 +613,39 @@ Böylece her biri, önceki kaybolunca görünür hale gelecek */
     position: absolute;
     transform: rotate(270deg);
     top: 200px;
-   
-    
+
+
     font-size: 60px;
-    color:rgb(88, 1, 1);
+    color: rgb(88, 1, 1);
     transition: all 0.3s ease;
 }
+
 /*h4'leri absolute yapıp cardı relativ yapmama rağmen h4'ü cardın soluna sıfırlayamadım. 
 O yuzden her bir h4e ayrı left değerleri vermek zorunda kaldım*/
-.cr7 .cr7-cards-container .cards:nth-of-type(1) h4{
+.cr7 .cr7-cards-container .cards:nth-of-type(1) h4 {
     left: -130px;
 }
-.cr7 .cr7-cards-container .cards:nth-of-type(2) h4{
+
+.cr7 .cr7-cards-container .cards:nth-of-type(2) h4 {
     left: -150px;
 }
-.cr7 .cr7-cards-container .cards:nth-of-type(3) h4{
+
+.cr7 .cr7-cards-container .cards:nth-of-type(3) h4 {
     left: -170px;
 }
-.cr7 .cr7-cards-container .cards:nth-of-type(4) h4{
+
+.cr7 .cr7-cards-container .cards:nth-of-type(4) h4 {
     left: -180px;
 }
+
 .cr7 .cr7-cards-container .cards:hover h4 {
     transform: unset;
-    top: 10px ;
+    top: 10px;
     left: 10px;
     font-size: 30px;
     transition: all 1.3s ease;
 }
+
 .cr7 .cr7-cards-container .cards p {
     position: absolute;
     bottom: 80px;
@@ -698,11 +660,13 @@ O yuzden her bir h4e ayrı left değerleri vermek zorunda kaldım*/
     opacity: 0.7;
     text-align: justify;
 }
+
 .cr7 .cr7-cards-container .cards:hover p {
     display: inline-block;
-    
+
 }
-.cr7 .cr7-cards-container .cards button{
+
+.cr7 .cr7-cards-container .cards button {
     position: absolute;
     width: 120px;
     bottom: 30px;
@@ -716,30 +680,42 @@ O yuzden her bir h4e ayrı left değerleri vermek zorunda kaldım*/
     color: black;
     display: none;
 }
+
 .cr7 .cr7-cards-container .cards:hover button {
     display: inline-block;
-    
+
 }
-.cr7 .cr7-cards-container .cards button:hover i{
+
+.cr7 .cr7-cards-container .cards button:hover i {
     margin-left: 20px;
-    font-size: 15px; 
-    transition: all .5s ease; 
+    font-size: 15px;
+    transition: all .5s ease;
 }
+
 /*Cr7 Section end*/
 /*News Section start*/
 
-.news{
+.news {
     background-image: url(images/news-bg.jpg);
     display: flex;
     align-items: center;
     justify-content: flex-end;
     position: relative;
+    
 
-   
 }
-.news .news-cards-container{
+
+.news h3 {
+    position: absolute;
+    font-size: 60px;
+    left: 100px;
+    top: 15px;
+    color: silver;
+    border-bottom: 2px solid silver;
+}
+
+.news .news-cards-container {
     background-color: rgb(70, 6, 70);
-    opacity: 0.9;
     width: 45vw;
     height: 80vh;
     margin: 30px;
@@ -749,121 +725,279 @@ O yuzden her bir h4e ayrı left değerleri vermek zorunda kaldım*/
     gap: 15px;
     overflow-y: auto;
     padding: 15px 0 15px 15px;
-    
 }
 
-.news .news-cards-container .news-cards{
+.news .news-cards-container .news-cards {
     width: 95%;
     height: 20%;
-
     background-color: silver;
     opacity: 0.9;
-    border-radius: 10px; 
-} 
-.hidden-card{
-    width: 500px;
-    border: 5px solid black;
-    position: absolute;
-    height: 50%;
-    left: 0;
-    top: 0;
-   width: 500px;
-    
+    border-radius: 10px;
 }
-.news .news-cards-container .news-cards:hover{
-    
-    width: unset;
-    
-} 
 
+.news .news-cards-container .hidden-card {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    left: 20%;
+    top: 20vh;
+}
 
+/*HOver efekti için divin yana kaymasını istiyordum ama yana kayınca hover efekti yarıda kesiliyordu. 
+Bu yüzden gizli bir div oluşturup hover olunca görünmesini sağladım  */
+.news .news-cards-container .news-cards:hover+.hidden-card {
+    display: inline-block;
+    width: 38%;
+    height: 60vh;
+    left: 120px;
+    transition: all 0.5s ease-out;
+}
+
+.news .news-cards-container .news-cards:hover+.hidden-card .news-cards-title figure {
+    width: 8vw;
+}
 
 .news .news-cards-container .news-cards .news-cards-title {
     width: 100%;
-    height:30%;
+    height: 30%;
     border: 1px solid white;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     background-color: rgb(77, 75, 75);
     position: relative;
+    overflow: hidden;
+
 }
+
 .news .news-cards-container .news-cards .news-cards-title figure {
     width: 7%;
     position: absolute;
-    top: -15px;
-    left: -15px;
+    top: 2px;
+    left: 2px;
+
 }
+
 .news .news-cards-container .news-cards .news-cards-title figure img {
     width: 100%;
+
 }
+
 .news .news-cards-container .news-cards .news-cards-title h5 {
     font-size: 20px;
-    margin-left: 20px;
+    margin-left: 35px;
     color: white;
 }
+
 .news .news-cards-container .news-cards .news-cards-title small {
-    color: white; 
-    margin-right: 10px;  
+    color: white;
+    margin-right: 10px;
 }
+
 .news .news-cards-container .news-cards .news-cards-detail {
     padding: 10px;
     height: 70%;
     overflow: hidden;
-    
-    
-    
-   
-}
-.news .news-cards-container .news-cards .news-cards-detail p{
-    
-    overflow: hidden;
-    
 }
 
 /*News Section end*/
+/*Parners Section start*/
+.partners{
+    background-image: url(images/partners-bg.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partners h3{
+    
+    position: absolute;
+    align-self: flex-start;
+    font-size: 60px;
+    left: 100px;
+    color: silver;
+    border-bottom: 2px solid silver;
+    
+}
+.partners .partners-cards-container{
+    width: 80vw;
+    height: 80vh;
+    margin-top: 145px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+    
+    padding: 25px;
+}
+.partners .partners-cards-container .partners-cards{
+    position: relative;
+}
+.partners .partners-cards-container .partners-cards div{
+    width: 90px;
+    height: 120px;
+    top: 10px;
+    left: 10px;
+    background-color: black;
+    border-radius: 30px 60px 50px 40px;
+    transform: rotate(30deg);
+    transform: skewY(30deg) ;
+    box-shadow: 0 0 10px wheat;
+    position: absolute;
+ 
+}
+.partners .partners-cards-container .partners-cards:nth-of-type(even) div{
+    border-radius: 60px 30px 40px 90px;
+    transform: rotate(60deg);
+    transform: skewY(20deg) ;
+    
+}
 
 
 
-@media (max-width:600px){
+.partners .partners-cards-container .partners-cards figure{
+    
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+    
+    
+}
+
+.partners .partners-cards-container .partners-cards figure:hover + div{
+    
+    border-radius: 40px 50px 40px 30px;
+    transform: rotate(220deg);
+    transform: skewX(10deg) ;
+    
+}
+
+/*Parners Section end*/
+/*Footer start*/
+footer {
+    width: 100vw;
+    height: 35vh;
+    background-color: black ;
+}
+
+footer .top {
+    display: flex;
+    justify-content: space-evenly;
+    height: 70%;
+    padding: 70px;
+}
+
+footer .top .follow {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    color: white;
+}
+
+footer .top .follow .icons {
+    color: white;
+    display: flex;
+
+    gap: 10px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+footer .top .subscribe {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    color: white;
+}
+
+footer .top .subscribe label {
+    background-color: white;
+    border-radius: 10px;
+    width: 100%;
+    height: 20px;
+}
+
+footer .top .subscribe label i {
+    color:black;
+    padding-left: 5px;
+}
+
+footer .top .subscribe label input {
+    border: none;
+    outline: none;
+    color: white;
+    
+}
+
+footer .top .contact {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+footer .top .contact i{
+    cursor: pointer;
+    color: white;
+}
+
+footer .bottom {
+    margin: 25px;
+    text-align: center;
+    color: white;
+}
+/*Footer end*/
+
+
+
+@media (max-width:600px) {
+
     /*Career Section start*/
-    .career .sec-title h3{
+    .career .sec-title h3 {
         margin-left: unset;
     }
-    .career .cards-container{
+
+    .career .cards-container {
         flex-direction: column;
         gap: 5px;
     }
-    .career .card { 
+
+    .career .card {
         height: 20vh;
-        width:50vw;
+        width: 50vw;
     }
+
     .career .cards-container {
         margin-top: 25px;
-        width: 90%; 
+        width: 90%;
     }
-    .career .cards-container .card:first-child{
-       align-self: flex-start;
+
+    .career .cards-container .card:first-child {
+        align-self: flex-start;
     }
-    .career .cards-container .card:last-child{
+
+    .career .cards-container .card:last-child {
         align-self: flex-end;
-     }
+    }
+
     .career .cards-container .card .card-title {
         margin-top: -20px;
         margin-left: 100px;
     }
+
     .career .cards-container .card .card-title figure {
         margin-left: 30px;
-    
+
     }
-    .career .career-info{
+
+    .career .career-info {
         margin-top: -25px;
         width: 90%;
         height: 20vh;
         overflow-y: auto;
     }
+
     /*Career Section end*/
-    
+
     /*Cr7 Section start*/
     .cr7 .cr7-cards-container .cards {
         margin-right: -180px;
@@ -872,15 +1006,28 @@ O yuzden her bir h4e ayrı left değerleri vermek zorunda kaldım*/
         position: relative;
         border: 1px solid black;
         transition: all .4s ease;
-    
+
     }
+
     /*Cr7 Section end*/
     /*News Section start*/
+    .news .news-cards-container .hidden-card {
 
+        left: 5%;
+        top: 20vh;
+    }
 
+    .news .news-cards-container .news-cards:hover+.hidden-card {
+        display: inline-block;
+        width: 45%;
+        height: 40vh;
+        left: 5%;
+        top: 55vh;
+        transition: all 0.5s ease-out;
+    }
 
-
-
-/*News Section end*/
+    /*News Section end*/
+    /*Parners Section start*/
+    /*Parners Section end*/
 
 }
